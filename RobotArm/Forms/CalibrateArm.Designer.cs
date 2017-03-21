@@ -143,6 +143,7 @@
             this.baseInsertButton.TabIndex = 5;
             this.baseInsertButton.Text = "Insert into Base";
             this.baseInsertButton.UseVisualStyleBackColor = true;
+            this.baseInsertButton.Click += new System.EventHandler(this.baseInsertButton_Click);
             // 
             // upperInsertButton
             // 
@@ -152,6 +153,7 @@
             this.upperInsertButton.TabIndex = 4;
             this.upperInsertButton.Text = "Insert into Upper Arm";
             this.upperInsertButton.UseVisualStyleBackColor = true;
+            this.upperInsertButton.Click += new System.EventHandler(this.upperInsertButton_Click);
             // 
             // foreInsertButton
             // 
@@ -161,6 +163,7 @@
             this.foreInsertButton.TabIndex = 3;
             this.foreInsertButton.Text = "Insert into Fore Arm";
             this.foreInsertButton.UseVisualStyleBackColor = true;
+            this.foreInsertButton.Click += new System.EventHandler(this.foreInsertButton_Click);
             // 
             // handInsertButton
             // 
@@ -170,6 +173,7 @@
             this.handInsertButton.TabIndex = 2;
             this.handInsertButton.Text = "Insert into Hand";
             this.handInsertButton.UseVisualStyleBackColor = true;
+            this.handInsertButton.Click += new System.EventHandler(this.handInsertButton_Click);
             // 
             // convertButton
             // 
@@ -179,6 +183,7 @@
             this.convertButton.TabIndex = 1;
             this.convertButton.Text = "Convert";
             this.convertButton.UseVisualStyleBackColor = true;
+            this.convertButton.Click += new System.EventHandler(this.convertButton_Click);
             // 
             // textBox5
             // 
@@ -223,6 +228,7 @@
             this.saveButton.TabIndex = 17;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // label5
             // 
@@ -378,6 +384,7 @@
             this.saveClawButton.TabIndex = 6;
             this.saveClawButton.Text = "Save";
             this.saveClawButton.UseVisualStyleBackColor = true;
+            this.saveClawButton.Click += new System.EventHandler(this.saveClawButton_Click);
             // 
             // linkLabel1
             // 
@@ -388,6 +395,7 @@
             this.linkLabel1.TabIndex = 5;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "How do I know?";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // clawOpenedTextBox
             // 
@@ -524,6 +532,7 @@
             this.saveServoButton.TabIndex = 22;
             this.saveServoButton.Text = "Save";
             this.saveServoButton.UseVisualStyleBackColor = true;
+            this.saveServoButton.Click += new System.EventHandler(this.saveServoButton_Click);
             // 
             // label20
             // 
@@ -623,6 +632,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "CalibrateArm";
             this.Text = "CalibrateArm";
+            this.Load += new System.EventHandler(this.CalibrateArm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
