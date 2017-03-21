@@ -84,7 +84,7 @@ void loop()
         break;
       case 'm': //masturbate
         Serial.println("masturbate");
-        masturbate(handServo, elbowServo, tiltServo, serialPos);
+        masturbate(serialPos);
         break;
       case 'f': //highFive
         Serial.println("highFive");
@@ -105,12 +105,23 @@ void rest(){
   elbowServo.detach();
   handServo.detach();
 }
-
+/***************************************************************************
+Makes masturbating movement, only as a joke, not recommended for actual use 
+***************************************************************************/
+void masturbate(byte times){
+  tiltServo.write(90);
+  for (int l = 0; l<times; l++) {
+    migrate(handServo, 80, elbowServo, 80, 18);
+    migrate(handServo, 40, elbowServo, 130, 18);
+  }
+}
 /*************************************************************************
 Make waveing movement 
 *************************************************************************/
 void wave(byte times){
   migrate(panServo, 0, elbowServo, 20, 10);
+  //migrate(panServo, 0, 10);
+  //elbowServo.write(20);
   for (int k = 0; k<times; k++) {
     migrate(handServo, 70, 15);
     migrate(handServo, 130, 15);
@@ -120,7 +131,7 @@ void wave(byte times){
 Shakes the arm in a denying way
 *************************************************************************/
 void shake(byte times){
-  migrate(handServo, 180, elbowServo, 90, 10);
+  migrate(handServo, 180, 10);
   for (int i = 0; i<times; i++) {
     migrate(panServo, 130, 10);
     migrate(panServo, 70, 10);

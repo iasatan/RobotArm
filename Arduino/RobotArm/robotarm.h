@@ -52,5 +52,14 @@ extern void migrate(Servo servo1, byte newPos1, Servo servo2, byte newPos2, Serv
 @return: none
 */
 extern void migrate(Servo servo1, byte newPos1, Servo servo2, byte newPos2, Servo servo3, byte newPos3, Servo servo4, byte newPos4, byte wait);
+/*
+@Makes masturbating movement, only as a joke, not recommended for actual use
+@params: Servo handServo, the servo that moves the hand
+         Servo elbowServo, the servo that moves the elbow
+         Servo tiltServo, the servo that moves the shoulder in tilt direction
+         byte Times, the number of times it should repeat the movement
+@return: none
+*/
+extern void masturbate(Servo handServo, Servo elbowServo, Servo tiltServo, byte times);
 
 #endif

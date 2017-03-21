@@ -157,3 +157,13 @@ void migrate(Servo servo1, byte newPos1, Servo servo2, byte newPos2, Servo servo
 			break;
 	}
 }
+/***************************************************************************
+Makes masturbating movement, only as a joke, not recommended for actual use 
+***************************************************************************/
+void masturbate(Servo handServo, Servo elbowServo, Servo tiltServo, byte times){
+  tiltServo.write(90);
+  for (int l = 0; l<times; l++) {
+    migrate(handServo, 80, elbowServo, 80, 18);
+    migrate(handServo, 40, elbowServo, 130, 18);
+  }
+}
