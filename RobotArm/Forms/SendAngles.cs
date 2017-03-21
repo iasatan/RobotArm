@@ -84,27 +84,27 @@ namespace RobotArm.Forms
         #region sendButtons
         private void sendHandButton_Click(object sender, EventArgs e)
         {
-            port.sendPosToServo("h", Convert.ToByte(handTextBox.Text));
+            port.SendPosToServo("h", Convert.ToByte(handTextBox.Text));
         }
 
         private void sendElbowButton_Click(object sender, EventArgs e)
         {
-            port.sendPosToServo("e", Convert.ToByte(elbowTextBox.Text));
+            port.SendPosToServo("e", Convert.ToByte(elbowTextBox.Text));
         }
 
         private void sendTiltButton_Click(object sender, EventArgs e)
         {
-            port.sendPosToServo("t", Convert.ToByte(shoulderTiltTextBox.Text));
+            port.SendPosToServo("t", Convert.ToByte(shoulderTiltTextBox.Text));
         }
 
         private void sendPanButton_Click(object sender, EventArgs e)
         {
-            port.sendPosToServo("p", Convert.ToByte(shoulderPanTextBox.Text));
+            port.SendPosToServo("p", Convert.ToByte(shoulderPanTextBox.Text));
         }
 
         private void sendClawButton_Click(object sender, EventArgs e)
         {
-            port.sendPosToServo("c", Convert.ToByte(clawTextBox.Text));
+            port.SendPosToServo("c", Convert.ToByte(clawTextBox.Text));
         }
         private void handTextBox_KeyDown(object sender, KeyEventArgs e)
         {

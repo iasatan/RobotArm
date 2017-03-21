@@ -12,7 +12,7 @@ namespace RobotArm.Util
     {
         SerialPort port;
         Model.Angles angles = new Model.Angles();
-        void initPort()
+        void InitPort()
         {
             try
             {
@@ -21,13 +21,17 @@ namespace RobotArm.Util
             }
             catch (Exception) { }
         }
-        public void connectToCom(string portName)
+        public void ConnectToCom(string portName)
         {
             port = new SerialPort(portName, 9600);
-            initPort();
+            InitPort();
         }
-
-        void putZerosBeforeNumberIfNeceserry(byte number, SerialPort port)
+        /// <summary>
+        /// sends "0"-s ahead if neceserry, because the serial port can't handle double or triple digits numbers
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="port"></param>
+        void PutZerosBeforeNumberIfNeceserry(byte number, SerialPort port)
         {
             if (number < 100)
             {
@@ -35,28 +39,35 @@ namespace RobotArm.Util
                     port.Write("0");
                 port.Write("0");
             }
-        }
-        public void writeAnglesToSerial(Model.Angles angles)
+        }/// <summary>
+        /// Sends the calculated positions to the arduino
+        /// </summary>
+        /// <param name="angles"></param>
+        public void WriteAnglesToSerial(Model.Angles angles)
         {
             port.Open();
             port.Write("h");//hand
-            putZerosBeforeNumberIfNeceserry(angles.HandAngle, port);
+            PutZerosBeforeNumberIfNeceserry(angles.HandAngle, port);
             port.Write(Convert.ToString(angles.HandAngle));
 
             port.Write("e");//elbow
-            putZerosBeforeNumberIfNeceserry(angles.ElbowAngle, port);
+            PutZerosBeforeNumberIfNeceserry(angles.ElbowAngle, port);
             port.Write(Convert.ToString(angles.ElbowAngle));
 
             port.Write("p"); //shoulderPan
-            putZerosBeforeNumberIfNeceserry(angles.PanAngle, port);
+            PutZerosBeforeNumberIfNeceserry(angles.PanAngle, port);
             port.Write(Convert.ToString(angles.PanAngle));
 
             port.Write("t");//shoulderTilt
-            putZerosBeforeNumberIfNeceserry(angles.TiltAngle, port);
+            PutZerosBeforeNumberIfNeceserry(angles.TiltAngle, port);
             port.Write(Convert.ToString(angles.TiltAngle));
             port.Close();
         }
-        public void claw(string pos)
+        /// <summary>
+        /// Opens or Closes the claw
+        /// </summary>
+        /// <param name="pos"></param>
+        public void Claw(string pos)
         {
             try
             {
@@ -70,17 +81,21 @@ namespace RobotArm.Util
             port.Write("c");
             if (pos == "close")
             {
-                putZerosBeforeNumberIfNeceserry(Properties.Settings.Default.clawClosed, port);
+                PutZerosBeforeNumberIfNeceserry(Properties.Settings.Default.clawClosed, port);
                 port.Write(Convert.ToString(Properties.Settings.Default.clawClosed));
             }
             else if (pos == "open")
             {
-                putZerosBeforeNumberIfNeceserry(Properties.Settings.Default.clawOpen, port);
+                PutZerosBeforeNumberIfNeceserry(Properties.Settings.Default.clawOpen, port);
                 port.Write(Convert.ToString(Properties.Settings.Default.clawOpen));
             }
             try { port.Close(); } catch (Exception) { }
         }
-        public string connectedToCom()
+        /// <summary>
+        /// returns the name of the port where the computer is connected to
+        /// </summary>
+        /// <returns></returns>
+        public string GetPortName()
         {
             try
             {
@@ -91,23 +106,28 @@ namespace RobotArm.Util
                 return "Not Connected";
             }
         }
-        public void sendPosToServo(string servo, byte angle)
+        /// <summary>
+        /// sends angle to a specific servo
+        /// </summary>
+        /// <param name="servo">letter of the servo</param>
+        /// <param name="angle"></param>
+        public void SendPosToServo(string servo, byte angle)
         {
             port.Open();
-            putZerosBeforeNumberIfNeceserry(angle, port);
+            PutZerosBeforeNumberIfNeceserry(angle, port);
             port.Write(servo + Convert.ToString(angle));
             port.Close();
         }
 
 
         #region tictactoe
-        static void grabdNextPiece() //TODO: Keresd meg a bábukat
+        static void GrabdNextPiece() //TODO: Keresd meg a bábukat
         {
 
         }
-        public void movePieceToBoard(string box)//TODO: Tedd a bábut a megfelelő helyre
+        public void MovePieceToBoard(string box)//TODO: Tedd a bábut a megfelelő helyre
         {
-            grabdNextPiece();
+            GrabdNextPiece();
             if (box == "A1")
             {
 
@@ -141,8 +161,6 @@ namespace RobotArm.Util
 
             }
         }
-
-
         #endregion tictactoe
     }
 }

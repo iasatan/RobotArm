@@ -11,6 +11,10 @@ namespace RobotArm.Util
     class Util
     {
         #region buttons
+        /// <summary>
+        /// increments the value of the textBox by 1
+        /// </summary>
+        /// <param name="textBox"></param>
         public static void PlusButton(TextBox textBox)
         {
             if (string.IsNullOrWhiteSpace(textBox.Text))
@@ -22,6 +26,10 @@ namespace RobotArm.Util
                 textBox.Text = Convert.ToString(Convert.ToInt16(textBox.Text) + 1);
             }
         }
+        /// <summary>
+        /// decrese the value of the textBox by 1
+        /// </summary>
+        /// <param name="textBox"></param>
         public static void MinusButton(TextBox textBox)
         {
             if (string.IsNullOrWhiteSpace(textBox.Text))
@@ -33,6 +41,12 @@ namespace RobotArm.Util
                 textBox.Text = Convert.ToString(Convert.ToInt16(textBox.Text) - 1);
             }
         }
+        /// <summary>
+        /// increments the value of the textBox by 1
+        /// </summary>
+        /// <param name="textBox"></param>
+        /// <param name="max">the maximum value the textBox can reach</param>
+        /// <param name="min">the minimum value the textBox can reach</param>
         public static void PlusButton(TextBox textBox, byte max, byte min)
         {
             if (string.IsNullOrWhiteSpace(textBox.Text))
@@ -47,6 +61,12 @@ namespace RobotArm.Util
                 }
             }
         }
+        /// <summary>
+        /// decrese the value of the textBox by 1
+        /// </summary>
+        /// <param name="textBox"></param>
+        /// <param name="max">the maximum value the textBox can reach</param>
+        /// <param name="min">the minimum value the textBox can reach</param>
         public static void MinusButton(TextBox textBox, byte max, byte min)
         {
             if (string.IsNullOrWhiteSpace(textBox.Text))

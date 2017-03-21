@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace RobotArm.Model
 {
+    /// <summary>
+    /// Stores the angles what the computer will send to the arduino
+    /// </summary>
     public class Angles
     {
         private byte[] angles = new byte[4];

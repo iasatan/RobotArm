@@ -28,8 +28,8 @@ namespace RobotArm.Forms
             textBox1.Text = Default.X;
             textBox2.Text = Default.Y;
             textBox3.Text = Default.Z;
-            port.connectToCom(comboBox1.Text);
-            comTextBox.Text = port.connectedToCom();
+            port.ConnectToCom(comboBox1.Text);
+            comTextBox.Text = port.GetPortName();
         }
 
         public void initComboBox1()
@@ -63,12 +63,14 @@ namespace RobotArm.Forms
 
         private void openMacroMakerToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Not yet implemented");
             //new Macro(port).Show();
         }
 
         private void ticTacToeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("You will need a camera for this");
+            MessageBox.Show("Not yet implemented");
+            //MessageBox.Show("You will need a camera for this");
             //new TicTacToe(port).Show();
         }
 
@@ -86,12 +88,12 @@ namespace RobotArm.Forms
 
         private void openClaw_Click(object sender, EventArgs e)
         {
-            port.claw("open");
+            port.Claw("open");
         }
 
         private void closeClaw_Click(object sender, EventArgs e)
         {
-            port.claw("close");
+            port.Claw("close");
         }
 
         #endregion
@@ -142,8 +144,8 @@ namespace RobotArm.Forms
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            port.connectToCom(comboBox1.Text);
-            comTextBox.Text = port.connectedToCom();
+            port.ConnectToCom(comboBox1.Text);
+            comTextBox.Text = port.GetPortName();
         }
 
     }

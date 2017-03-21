@@ -19,9 +19,11 @@ namespace RobotArm.Util
         {
             this.pos = pos;
         }
-        /****************************************************************************************
-        returns the calculated angles
-        ****************************************************************************************/
+
+        /// <summary>
+        /// returns the calculated angles
+        /// </summary>
+        /// <returns>Angles angles</returns>
         public Model.Angles GetCalculatedAngles()
         {
             Model.Angles angles = new Model.Angles();

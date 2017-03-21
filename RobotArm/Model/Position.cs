@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace RobotArm.Model
 {
+    /// <summary>
+    /// Stores the 3D position where the computer will convert into angles and send to the arduino
+    /// </summary>
     class Position
     {
         int x;
